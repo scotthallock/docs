@@ -21,9 +21,9 @@ The quickest way to create a new extension is to run `docker extension init my-e
 > **Tip**
 >
 > The `docker extension init` generates a React based extension. But you can still use it as a starting point for
-> your own extension and use any other frontend framework, like Vue, Angular, Svelte, etc. or event stay with
+> your own extension and use any other frontend framework, like Vue, Angular, Svelte, etc. or even stay with
 > vanilla Javascript.
-{: .tip }
+> {: .tip }
 
 Although you can start from an empty directory or from the `react-extension` [sample folder](https://github.com/docker/extensions-sdk/tree/main/samples){:target="_blank" rel="noopener" class="_"},
 it's highly recommended that you start from the `docker extension init` command and change it to suit your needs.
@@ -103,10 +103,10 @@ COPY docker.svg .
 COPY --from=client-builder /ui/build ui
 
 ```
+
 > Note
 >
 > In the example Dockerfile, you can see that the image label `com.docker.desktop.extension.icon` is set to an icon URL. The Extensions Marketplace displays this icon without installing the extension. The Dockerfile also includes `COPY docker.svg .` to copy an icon file inside the image. This second icon file is used to display the extension UI in the Dashboard, once the extension is installed.
-
 
   </div>
   <div id="vue-dockerfile" class="tab-pane fade" markdown="1">
@@ -117,7 +117,7 @@ COPY --from=client-builder /ui/build ui
 >
 > We don't have a working Dockerfile for Vue yet. [Fill out the form](https://docs.google.com/forms/d/e/1FAIpQLSdxJDGFJl5oJ06rG7uqtw1rsSBZpUhv_s9HHtw80cytkh2X-Q/viewform?usp=pp_url&entry.1333218187=Vue){: target="_blank" rel="noopener" class="_"}
 > and let us know if you'd like a Dockerfile for Vue.
-{: .important }
+> {: .important }
 
   </div>
   <div id="angular-dockerfile" class="tab-pane fade" markdown="1">
@@ -128,7 +128,7 @@ COPY --from=client-builder /ui/build ui
 >
 > We don't have a working Dockerfile for Angular yet. [Fill out the form](https://docs.google.com/forms/d/e/1FAIpQLSdxJDGFJl5oJ06rG7uqtw1rsSBZpUhv_s9HHtw80cytkh2X-Q/viewform?usp=pp_url&entry.1333218187=Angular){: target="_blank" rel="noopener" class="_"}
 > and let us know if you'd like a Dockerfile for Angular.
-{: .important }
+> {: .important }
 
   </div>
   <div id="svelte-dockerfile" class="tab-pane fade" markdown="1">
@@ -139,12 +139,10 @@ COPY --from=client-builder /ui/build ui
 >
 > We don't have a working Dockerfile for Svelte yet. [Fill out the form](https://docs.google.com/forms/d/e/1FAIpQLSdxJDGFJl5oJ06rG7uqtw1rsSBZpUhv_s9HHtw80cytkh2X-Q/viewform?usp=pp_url&entry.1333218187=Svelte){: target="_blank" rel="noopener" class="_"}
 > and let us know if you'd like a Dockerfile for Svelte.
-{: .important }
+> {: .important }
 
   </div>
 </div>
-
-
 
 ## Configure the metadata file
 
@@ -201,7 +199,7 @@ npm install @docker/extension-api-client
 Then call the `createDockerDesktopClient` function to create a client object to call the extension APIs.
 
 ```js
-import { createDockerDesktopClient } from '@docker/extension-api-client';
+import { createDockerDesktopClient } from "@docker/extension-api-client";
 
 const ddClient = createDockerDesktopClient();
 ```
@@ -306,6 +304,7 @@ export function App() {
 }
 {% endraw %}
 ```
+
 ![Screenshot of the container list.](images/react-extension.png)
 
   </div>
@@ -317,8 +316,8 @@ export function App() {
 >
 > We don't have an example for Vue yet. [Fill out the form](https://docs.google.com/forms/d/e/1FAIpQLSdxJDGFJl5oJ06rG7uqtw1rsSBZpUhv_s9HHtw80cytkh2X-Q/viewform?usp=pp_url&entry.1333218187=Vue){: target="_blank" rel="noopener" class="_"}
 > and let us know if you'd like a sample with Vue.
-{: .important }
-  
+> {: .important }
+
   </div>
   <div id="angular-app" class="tab-pane fade" markdown="1">
 
@@ -328,7 +327,7 @@ export function App() {
 >
 > We don't have an example for Angular yet. [Fill out the form](https://docs.google.com/forms/d/e/1FAIpQLSdxJDGFJl5oJ06rG7uqtw1rsSBZpUhv_s9HHtw80cytkh2X-Q/viewform?usp=pp_url&entry.1333218187=Angular){: target="_blank" rel="noopener" class="_"}
 > and let us know if you'd like a sample with Angular.
-{: .important }
+> {: .important }
 
   </div>
   <div id="svelte-app" class="tab-pane fade" markdown="1">
@@ -339,15 +338,14 @@ export function App() {
 >
 > We don't have an example for Svelte yet. [Fill out the form](https://docs.google.com/forms/d/e/1FAIpQLSdxJDGFJl5oJ06rG7uqtw1rsSBZpUhv_s9HHtw80cytkh2X-Q/viewform?usp=pp_url&entry.1333218187=Svelte){: target="_blank" rel="noopener" class="_"}
 > and let us know if you'd like a sample with Svelte.
-{: .important }
+> {: .important }
 
   </div>
 </div>
 
-
 ## Policies enforced for the front-end code
 
-Extension UI code is rendered in a separate electron session and doesn't have a node.js environment initialized, nor direct access to the electron APIs. 
+Extension UI code is rendered in a separate electron session and doesn't have a node.js environment initialized, nor direct access to the electron APIs.
 
 This is to limit the possible unexpected side effects to the overall Docker Dashboard.
 
@@ -381,7 +379,7 @@ when you need to debug it.
 >
 > You can turn on [hot reloading](../dev/test-debug.md#hot-reloading-whilst-developing-the-ui) to avoid the need to
 > rebuild the extension every time you make a change.
-{: .tip }
+> {: .tip }
 
 ## What's next?
 
@@ -390,4 +388,3 @@ when you need to debug it.
 - Learn more about extensions [architecture](../architecture/index.md).
 - For more information and guidelines on building the UI, see the [Design and UI styling section](../design/design-guidelines.md).
 - If you want to set up user authentication for the extension, see [Authentication](../guides/oauth2-flow.md).
-
